@@ -49,17 +49,13 @@ interface FavoritesProviderProps {
   children: ReactNode;
 }
 
-/* =======================
-   Context
-======================= */
+/*  Context  */
 
 const FavoritesContext = createContext<FavoritesContextType | undefined>(
   undefined
 );
 
-/* =======================
-   Provider
-======================= */
+/*  Provider  */
 
 export const FavoritesProvider: React.FC<FavoritesProviderProps> = ({
   children,
@@ -108,9 +104,7 @@ export const FavoritesProvider: React.FC<FavoritesProviderProps> = ({
   );
 };
 
-/* =======================
-   Hook
-======================= */
+/*   Hook  */
 
 export const useFavorites = (): FavoritesContextType => {
   const context = useContext(FavoritesContext);

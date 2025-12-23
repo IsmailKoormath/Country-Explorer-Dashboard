@@ -3,7 +3,6 @@ import type { AxiosResponse } from "axios";
 import type { Country } from "../context/FavoritesContext";
 
 /*  Constants  */
-// const BASE_URL = "https://restcountries.com/v3.1";
 const BASE_URL = "https://restcountries.com/v3.1";
 const WEATHER_API_KEY = import.meta.env.VITE_WEATHER_API_KEY || "";
 const WEATHER_BASE_URL = "https://api.openweathermap.org/data/2.5";
@@ -57,6 +56,14 @@ export async function getWeatherByCity(city: string): Promise<WeatherData> {
   }
 
   try {
+    fetch(
+      `https://api.openweathermap.org/data/2.5/weather?q=London&appid=${
+        import.meta.env.VITE_WEATHER_API_KEY
+      }&units=metric`
+    )
+      .then((res) => res.json())
+      .then((data) => console.log(data));
+
     const response: AxiosResponse<WeatherData> = await axios.get(
       `${WEATHER_BASE_URL}/weather`,
       {
